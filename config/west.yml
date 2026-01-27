@@ -10,9 +10,6 @@ manifest:
       remote: zmkfirmware
       revision: main
       import: app/west.yml
-    - name: zmk-dongle-display-view
-      remote: mctechnology17
-      revision: main
     - name: azoteq-input-module # <-- enable the drivers
       remote: mctechnology17
       revision: main
@@ -21,3 +18,4 @@ manifest:
       revision: main
   self:
     path: config
+
