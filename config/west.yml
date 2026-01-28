@@ -39,8 +39,8 @@ manifest:
       
     - name: zmk-feature-split-esb
       remote: badjeff
-      # revision: main
-      revision: core/move-to-zephyr-4-1
+      revision: main
+      #revision: core/move-to-zephyr-4-1
 
     - name: zmk-adns9800-driver
       remote: badjeff
@@ -149,6 +149,7 @@ manifest:
 
   self:
     path: config
+
 
 
 
