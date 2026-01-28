@@ -37,7 +37,7 @@ if SHIELD_SOFLE_DONGLE || SHIELD_SOFLE_RIGHT
 config ZMK_POINTING
     default y
 
-endif ## SHIELD_SOFLE_LEFT || SHIELD_SOFLE_RIGHT
+endif ## SHIELD_SOFLE_DONGLE || SHIELD_SOFLE_RIGHT
 ## -----------------------------------------------------------------
 if SHIELD_SOFLE_DONGLE || SHIELD_SOFLE_LEFT || SHIELD_SOFLE_RIGHT
 
