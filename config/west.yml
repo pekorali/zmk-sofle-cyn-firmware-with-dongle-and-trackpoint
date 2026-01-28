@@ -5,6 +5,12 @@ manifest:
       # https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
     - name: mctechnology17
       url-base: https://github.com/mctechnology17
+    - name: badjeff
+      url-base: https://github.com/badjeff
+    - name: mwlaboratories
+      url-base: https://github.com/mwlaboratories
+    - name: nrfconnect
+      url-base: https://github.com/nrfconnect
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -16,6 +22,25 @@ manifest:
     - name: zmk-azoteq-adapter # <-- enable this module
       remote: mctechnology17
       revision: main
+    - name: kb_zmk_ps2_mouse_trackpoint_driver
+      remote: mwlaboratories
+      revision: main
+    - name: zmk-pmw3610-driver
+      remote: badjeff
+      revision: main
+    - name: zmk-feature-split-esb
+      remote: badjeff
+      revision: main
+    - name: sdk-nrf
+      remote: badjeff
+      revision: v3.1-branch+zmk-fixes
+      path: nrf
+    - name: nrfxlib
+      remote: nrfconnect
+      revision: v3.1-branch
+      repo-path: sdk-nrfxlib
+      path: nrfxlib
   self:
     path: config
+
 
