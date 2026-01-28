@@ -22,8 +22,6 @@ config ZMK_STUDIO
 config ZMK_STUDIO_LOCKING
     default n  
 
-config ZMK_SLEEP
-    default n
     
 endif ## SHIELD_SOFLE_DONGLE
 ## -----------------------------------------------------------------
@@ -31,9 +29,6 @@ if SHIELD_SOFLE_LEFT || SHIELD_SOFLE_RIGHT
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default n
-
-config ZMK_SLEEP
-    default y
 
 endif ## SHIELD_SOFLE_LEFT || SHIELD_SOFLE_RIGHT
 ## -----------------------------------------------------------------
