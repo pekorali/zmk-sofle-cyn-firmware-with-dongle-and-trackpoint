@@ -2,7 +2,7 @@
 if SHIELD_SOFLE_DONGLE
 
 config ZMK_KEYBOARD_NAME
-    default "Sofle"
+    default "Sofle CYN"
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
@@ -32,17 +32,21 @@ if SHIELD_SOFLE_LEFT || SHIELD_SOFLE_RIGHT
 config ZMK_SPLIT_ROLE_CENTRAL
     default n
 
+config ZMK_SLEEP
+    default y
+
+endif ## SHIELD_SOFLE_LEFT || SHIELD_SOFLE_RIGHT
+## -----------------------------------------------------------------
+if SHIELD_SOFLE_DONGLE || SHIELD_SOFLE_RIGHT
+
+config ZMK_POINTING
+    default y
+
 endif ## SHIELD_SOFLE_LEFT || SHIELD_SOFLE_RIGHT
 ## -----------------------------------------------------------------
 if SHIELD_SOFLE_DONGLE || SHIELD_SOFLE_LEFT || SHIELD_SOFLE_RIGHT
 
-config ZMK_BLE
-    default y
-
 config ZMK_SPLIT
-    default y
-
-config ZMK_SLEEP
     default y
 
 endif ## SHIELD_SOFLE_DONGLE || SHIELD_SOFLE_LEFT || SHIELD_SOFLE_RIGHT
