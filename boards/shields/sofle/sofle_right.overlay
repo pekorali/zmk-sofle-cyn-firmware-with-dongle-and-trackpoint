@@ -26,6 +26,7 @@
  *   D7 = P1.12 -> PS/2 Data (SDA) - UART RX
  */
 
+
 /* Interrupt priority overrides for PS/2 timing */
 /* GPIOTE and UART0 at priority 0 for reliable PS/2 communication */
 &gpiote { interrupts = < 6 2 >; };  /* Lower priority - UART0 handles reads */
