@@ -1,6 +1,12 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <layouts/josefadamcik/sofle.dtsi>
 
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <input/processors/temp_layer.dtsi>
+#include <input/processors/scaler.dtsi>
+#include <input/processors/code_mapper.dtsi>
+
+
 &josefadamcik_sofle_layout {
     transform = <&default_transform>;
 };
@@ -9,6 +15,14 @@
     chosen {
         zmk,kscan = &mock_kscan;
         zmk,physical-layout = &josefadamcik_sofle_layout;
+    };
+
+    /* ESB split transport address config */
+    esb_split {
+        compatible = "zmk,esb-split";
+        base-addr-0 = <0xE7 0xE7 0xE7 0xE7>;
+        base-addr-1 = <0xC2 0xC2 0xC2 0xC2>;
+        addr-prefix = <0xE7 0xC2 0xC3 0xC4 0xC5 0xC6 0xC7 0xC8>;
     };
 
     default_transform: keymap_transform_0 {
@@ -62,13 +76,47 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(4,5) RC(4,6) RC(3,6) RC(3,7) 
 };
 
 
-    /{
-    esb_split {
-        compatible = "zmk,esb-split";
-        // These are arbitrary default addresses. In end user products
-        // different addresses should be used for each set of devices.
-        base-addr-0 = <0xE7 0xE7 0xE7 0xE7>;
-        base-addr-1 = <0xC2 0xC2 0xC2 0xC2>;
-        addr-prefix = <0xE7 0xC2 0xC3 0xC4 0xC5 0xC6 0xC7 0xC8>;
+    /* Input split proxy - receives events from peripherals */
+    split_inputs {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        trackpoint_split: trackpoint_split@0 {
+            compatible = "zmk,input-split";
+            reg = <0>;
+        };
+
     };
+
+    /* Scroll mode processor - converts XY to scroll wheel */
+    zip_xy_to_scroll: zip_xy_to_scroll {
+        compatible = "zmk,input-processor-code-mapper";
+        #input-processor-cells = <0>;
+        type = <INPUT_EV_REL>;
+        map = <INPUT_REL_X INPUT_REL_HWHEEL>, <INPUT_REL_Y INPUT_REL_WHEEL>;
+    };
+
+    /* Swap X and Y axes */
+    zip_xy_swap: zip_xy_swap {
+        compatible = "zmk,input-processor-code-mapper";
+        #input-processor-cells = <0>;
+        type = <INPUT_EV_REL>;
+        map = <INPUT_REL_X INPUT_REL_Y>, <INPUT_REL_Y INPUT_REL_X>;
+    };
+
+    /* Trackpoint listener - converts to HID mouse reports */
+    trackpoint_listener: trackpoint_listener {
+        compatible = "zmk,input-listener";
+        status = "okay";
+        device = <&trackpoint_split>;
+        /* Swap axes + 2x scaling + auto mouse layer */
+        input-processors = <&zip_xy_swap>, <&zip_xy_scaler 2 1>, <&zip_temp_layer 5 1000>;
+
+        /* Layer 6: Scroll mode - swap + reduced sensitivity */
+        scroll {
+            layers = <6>;
+            input-processors = <&zip_xy_swap>, <&zip_xy_scaler 1 4>, <&zip_xy_to_scroll>;
+        };
+    };
+
 };
