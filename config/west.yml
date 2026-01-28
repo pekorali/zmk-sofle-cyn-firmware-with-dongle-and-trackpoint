@@ -2,8 +2,8 @@ manifest:
   remotes:
     # - name: zmkfirmware
     #   url-base: https://github.com/zmkfirmware
-    # - name: nrfconnect
-    #   url-base: https://github.com/nrfconnect
+    - name: nrfconnect
+      url-base: https://github.com/nrfconnect
     # - name: petejohanson
     #   url-base: https://github.com/petejohanson
     - name: badjeff
@@ -30,11 +30,13 @@ manifest:
       remote: badjeff
       revision: v3.1-branch+zmk-fixes
       path: nrf
+      
     - name: nrfxlib
       remote: nrfconnect
       revision: v3.1-branch
       repo-path: sdk-nrfxlib
       path: nrfxlib
+      
     - name: zmk-feature-split-esb
       remote: badjeff
       # revision: main
@@ -147,5 +149,6 @@ manifest:
 
   self:
     path: config
+
 
 
