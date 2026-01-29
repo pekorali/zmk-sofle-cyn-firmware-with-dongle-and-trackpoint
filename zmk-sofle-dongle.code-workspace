@@ -1,0 +1,66 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/*.rpyc": true,
+			"**/*.rpa": true,
+			"**/*.rpymc": true,
+			"**/cache/": true
+		},
+		"files.associations": {
+			"chrono": "c",
+			"*.inc": "c",
+			"regex": "c",
+			"xlocale": "c",
+			"xstring": "c",
+			"algorithm": "c",
+			"iterator": "c",
+			"xhash": "c",
+			"xmemory": "c",
+			"xtree": "c",
+			"xutility": "c",
+			"array": "c",
+			"vector": "c",
+			"compare": "c",
+			"functional": "c",
+			"future": "c",
+			"memory": "c",
+			"ratio": "c",
+			"tuple": "c",
+			"type_traits": "c",
+			"utility": "c",
+			"variant": "c",
+			"xtr1common": "c",
+			"app_esb.h": "c",
+			"charconv": "c",
+			"hid_indicators_types.h": "c",
+			"atomic": "c",
+			"bit": "c",
+			"cstddef": "c",
+			"format": "c",
+			"sstream": "c",
+			"system_error": "c",
+			"xloctime": "c",
+			"kernel.h": "c",
+			"timeslot.h": "c",
+			"xiosbase": "c",
+			"log.h": "c",
+			"deque": "c",
+			"initializer_list": "c",
+			"list": "c",
+			"queue": "c",
+			"random": "c",
+			"iosfwd": "c",
+			"xlocbuf": "c",
+			"mutex": "c",
+			"behavior.h": "c",
+			"physical_layouts.h": "c",
+			"hwinfo.h": "c",
+			"locale": "c"
+		}
+	}
+}
