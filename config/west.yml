@@ -79,9 +79,9 @@ manifest:
       remote: badjeff
       revision: main
 
-    # - name: zmk-input-behavior-listener
-    #   remote: badjeff
-    #   revision: main
+     - name: zmk-input-behavior-listener
+       remote: badjeff
+       revision: main
 
     - name: zmk-output-behavior-listener
       remote: badjeff
@@ -103,17 +103,17 @@ manifest:
       remote: badjeff
       revision: main
 
-    - name: zmk-drv2605-driver
-      remote: badjeff
-      revision: main
+    #- name: zmk-drv2605-driver
+    #  remote: badjeff
+    #  revision: main
 
-    - name: zmk-drv883x-driver
-      remote: badjeff
-      revision: main
+    #- name: zmk-drv883x-driver
+    #  remote: badjeff
+    #  revision: main
 
-    - name: zmk-tb6612fng-driver
-      remote: badjeff
-      revision: main
+    #- name: zmk-tb6612fng-driver
+    #  remote: badjeff
+    #  revision: main
 
     - name: zmk-kscan-blackout
       remote: badjeff
@@ -139,16 +139,17 @@ manifest:
       remote: badjeff
       revision: main
 
-    - name: cirque-input-module
-      remote: badjeff
-      revision: tweak
+    #- name: cirque-input-module
+    #  remote: badjeff
+    #  revision: tweak
 
-    - name: prospector-zmk-module
-      remote: badjeff
-      revision: 1-47-inch-panel
+    #- name: prospector-zmk-module
+    #  remote: badjeff
+    #  revision: 1-47-inch-panel
 
   self:
     path: config
+
 
 
 
